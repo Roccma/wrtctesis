@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
   res.render('template', {});
 });
 
+const normalizePort = require('normalize-port');
+ 
+const port = normalizePort(process.env.PORT || '3000');
+
 const server = require('http').Server(app);
 /*var nodeStatic = require('node-static');
 var http = require('http');
@@ -39,7 +43,7 @@ server.get('/', (req, res) => {
 });*/
 
 var io = require('socket.io')(server);
-server.listen(3000, () => {
+server.listen(port, () => {
   console.log("Corriendo en el puerto 3000!");
 });
 
